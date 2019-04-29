@@ -27,8 +27,8 @@ public class RegistrationController {
     @RequestMapping(path = "signup-success")
     public String signUpSuccess() {
         Student student = new Student();
-        student.setFirstName("Dan");
-        student.setLastName("Adi");
+        student.setFirstName("Mircea-Razvan");
+        student.setLastName("Dragos");
         student.setAge(30);
         student.setEmail("razvan_dragos09@yahoo.com"); //where the email is sent
 
@@ -38,6 +38,6 @@ public class RegistrationController {
             logger.info("Error sending email: " + e.getMessage());
         }
 
-        return "Thank you for registering with us!";
+        return "Successful sign up!";
     }
 }

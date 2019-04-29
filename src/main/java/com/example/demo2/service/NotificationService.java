@@ -18,12 +18,18 @@ public class NotificationService {
 
     public void sendNotification(Student student) throws MailException {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
+        StringBuilder mailContent = new StringBuilder();
         mailMessage.setTo(student.getEmail());
         mailMessage.setFrom("razvandragos099@gmail.com");
-        mailMessage.setSubject("Test application mail");
-        mailMessage.setText("Hello, " + "\n" +
-                "This is a test to verify if the mail was successfully sent!" + "\n" +
-                "If successful, please send a :* on messenger!");
+        mailMessage.setSubject("Register confirmation");
+        mailContent
+                .append("Hello ")
+                .append(student.getFirstName())
+                .append(" ")
+                .append(student.getLastName())
+                .append(", \n")
+                .append("Thank you for registering with us!");
+        mailMessage.setText(mailContent.toString());
         javaMailSender.send(mailMessage);
     }
 }
