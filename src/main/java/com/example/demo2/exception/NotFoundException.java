@@ -4,7 +4,7 @@ import org.springframework.http.HttpStatus;
 
 public class NotFoundException extends CustomException {
     public NotFoundException(String model, long id) {
-        super(model + " with id " + id + " not found");
+        super(model + " with student_id " + id + " not found");
     }
 
     @Override
