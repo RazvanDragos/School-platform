@@ -34,7 +34,8 @@ public class Exam {
     @NotBlank
     private String result;
 
-    public Exam(@NotBlank String name, @NotBlank Date date, @NotBlank Grade grade, @NotBlank String result) {
+    public Exam(Long examID, @NotBlank String name, @NotBlank Date date, @NotBlank Grade grade, @NotBlank String result) {
+        this.examID = examID;
         this.name = name;
         this.date = date;
         this.grade = grade;

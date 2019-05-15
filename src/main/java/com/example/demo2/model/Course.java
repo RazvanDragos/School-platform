@@ -33,7 +33,8 @@ public class Course {
     @ManyToMany(mappedBy = "courses")
     private List<Professor> professors;
 
-    public Course(@NotBlank String name, @NotBlank int credits, Exam exam, List<Professor> professors) {
+    public Course(Long courseID, @NotBlank String name, @NotBlank int credits, Exam exam, List<Professor> professors) {
+        this.courseID = courseID;
         this.name = name;
         this.credits = credits;
         this.exam = exam;

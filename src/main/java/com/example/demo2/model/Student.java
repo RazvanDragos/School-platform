@@ -46,7 +46,8 @@ public class Student {
     )
     private List<Course> courses;
 
-    public Student(@NotBlank String firstName, @NotBlank String lastName, @NotBlank int age, @NotBlank String email, @NotBlank Long phone, List<Course> courses) {
+    public Student(Long studentID, @NotBlank String firstName, @NotBlank String lastName, @NotBlank int age, @NotBlank String email, @NotBlank Long phone, List<Course> courses) {
+        this.studentID = studentID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;

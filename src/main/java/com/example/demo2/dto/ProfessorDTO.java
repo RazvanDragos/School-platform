@@ -6,7 +6,7 @@ public class ProfessorDTO {
     public String lastName;
     public int age;
     public String email;
-    private Long phone;
+    public Long phone;
 
     public ProfessorDTO(Long professorID, String firstName, String lastName, int age, String email, Long phone) {
         this.professorID = professorID;

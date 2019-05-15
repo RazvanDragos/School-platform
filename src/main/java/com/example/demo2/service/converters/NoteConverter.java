@@ -8,7 +8,7 @@ public class NoteConverter implements Converter<Note, NoteDTO> {
     @Override
     public Note dtoToModel(NoteDTO noteDTO) {
         return new Note(
-            noteDTO.noteId,
+            noteDTO.noteID,
             noteDTO.title,
             noteDTO.content,
             noteDTO.createdAt,
