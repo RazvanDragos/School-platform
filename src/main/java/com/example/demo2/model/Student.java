@@ -16,7 +16,7 @@ import java.util.List;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long student_id;
+    private Long studentID;
 
     @Column
     @NotBlank
@@ -41,8 +41,8 @@ public class Student {
     @ManyToMany
     @JoinTable(
             name = "student_course",
-            joinColumns = {@JoinColumn(name = "student_id") },
-            inverseJoinColumns = {@JoinColumn(name = "course_id")}
+            joinColumns = {@JoinColumn(name = "studentID") },
+            inverseJoinColumns = {@JoinColumn(name = "courseID")}
     )
     private List<Course> courses;
 

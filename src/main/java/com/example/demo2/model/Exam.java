@@ -13,10 +13,10 @@ import java.util.Date;
 @NoArgsConstructor
 @Getter
 @Setter
-class Exam {
+public class Exam {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long exam_id;
+    private Long examID;
 
     @Column
     @NotBlank

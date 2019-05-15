@@ -20,7 +20,7 @@ import java.util.Date;
 public class Note {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long noteID;
 
     @NotBlank
     private String title;
@@ -38,8 +38,8 @@ public class Note {
     @LastModifiedDate
     private Date updatedAt;
 
-    public Note(Long id, @NotBlank String title, @NotBlank String content, Date createdAt, Date updatedAt) {
-        this.id = id;
+    public Note(Long noteID, @NotBlank String title, @NotBlank String content, Date createdAt, Date updatedAt) {
+        this.noteID = noteID;
         this.title = title;
         this.content = content;
         this.createdAt = createdAt;

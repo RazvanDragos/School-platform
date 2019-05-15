@@ -16,27 +16,27 @@ import java.util.List;
 class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long course_id;
+    private Long courseID;
 
     @Column
     @NotBlank
     private String name;
-
-    @ManyToMany(mappedBy = "courses")
-    private List<Professor> professors;
 
     @Column
     @NotBlank
     private int credits;
 
     @OneToOne
-    @JoinColumn(name = "exam_id")
+    @JoinColumn(name = "examID")
     private Exam exam;
 
-    public Course(@NotBlank String name, List<Professor> professors, @NotBlank int credits, Exam exam) {
+    @ManyToMany(mappedBy = "courses")
+    private List<Professor> professors;
+
+    public Course(@NotBlank String name, @NotBlank int credits, Exam exam, List<Professor> professors) {
         this.name = name;
-        this.professors = professors;
         this.credits = credits;
         this.exam = exam;
+        this.professors = professors;
     }
 }
