@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-class Course {
+public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long courseID;
