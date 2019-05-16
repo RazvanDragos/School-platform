@@ -1,5 +1,6 @@
 package com.example.demo2.controller;
 
+import com.example.demo2.dto.NoteDTO;
 import com.example.demo2.model.Note;
 import com.example.demo2.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping(path = "/note", produces = "application/json")
+@RequestMapping(path = "/notes", produces = "application/json")
 public class NoteController {
     private final NoteService noteService;
 
@@ -19,51 +20,35 @@ public class NoteController {
     public NoteController(NoteService noteService) {
         this.noteService = noteService;
     }
-
+    
     @GetMapping
-    public ResponseEntity<List<Note>> getAllNotes() {
-        return new ResponseEntity<>(noteService.getAll(), HttpStatus.OK);
-    }
-
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<Note> getCompanyById(@PathVariable("id") Long noteId) {
-        return new ResponseEntity<>(noteService.getNoteById(noteId), HttpStatus.FOUND);
-    }
-
-    /*@GetMapping("/notes")
+    @ResponseStatus(HttpStatus.OK)
     public List<Note> getAllNotes() {
-        return noteRepository.findAll();
+        return noteService.getAll();
     }
 
-    @GetMapping("/notes")
-    public Note createNote(@Valid @RequestBody Note note) {
-        return noteRepository.save(note);
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<Note> getNoteById(@PathVariable(value = "id") Long noteID) {
+        return new ResponseEntity<>(noteService.getNoteById(noteID), HttpStatus.OK);
     }
 
-    @GetMapping("/notes/{studentID}")
-    public Note getNoteById(@PathVariable(value = "studentID") Long noteID) {
-        return noteRepository.findById(noteID)
-                .orElseThrow(() -> new ResourceNotFoundException("Note", "studentID", noteID));
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public void insert(@RequestBody NoteDTO noteDTO) {
+        noteService.insert(noteDTO);
     }
 
-    @PutMapping("/notes/{studentID}")
-    public Note updateNote(@PathVariable(value = "studentID") Long noteID, @Valid @RequestBody Note noteDetails) {
-        Note note = noteRepository.findById(noteID)
-                .orElseThrow(() -> new ResourceNotFoundException("Note", "studentID", noteID));
-
-        note.setTitle(noteDetails.getTitle());
-        note.setContent(noteDetails.getContent());
-
-        return noteRepository.save(note);
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteById(@PathVariable("id") Long id) {
+        noteService.deleteByID(id);
     }
 
-    @DeleteMapping("/notes/{studentID}")
-    public ResponseEntity<?> deleteNote(@PathVariable(value = "studentID") Long noteID) {
-        Note note = noteRepository.findById(noteID)
-                .orElseThrow(() -> new ResourceNotFoundException("Note", "studentID", noteID));
+    @PatchMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void update(@PathVariable("id") Long id, @RequestBody NoteDTO newNoteDTO) {
+        noteService.update(id, newNoteDTO);
+    }
 
-        noteRepository.delete(note);
-
-        return ResponseEntity.ok().build();
-    }*/
 }
