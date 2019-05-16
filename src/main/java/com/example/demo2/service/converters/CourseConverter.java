@@ -2,7 +2,9 @@ package com.example.demo2.service.converters;
 
 import com.example.demo2.dto.CourseDTO;
 import com.example.demo2.model.Course;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CourseConverter implements Converter<Course, CourseDTO> {
 
     @Override

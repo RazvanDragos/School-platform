@@ -2,7 +2,9 @@ package com.example.demo2.service.converters;
 
 import com.example.demo2.dto.NoteDTO;
 import com.example.demo2.model.Note;
+import org.springframework.stereotype.Component;
 
+@Component
 public class NoteConverter implements Converter<Note, NoteDTO> {
 
     @Override
