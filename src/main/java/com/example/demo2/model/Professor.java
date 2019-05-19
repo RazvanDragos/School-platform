@@ -46,12 +46,13 @@ public class Professor {
     )
     private List<Course> courses;
 
-    public Professor(Long professorID, @NotBlank String firstName, @NotBlank String lastName, @NotBlank int age, @NotBlank String email, @NotBlank Long phone) {
+    public Professor(Long professorID, @NotBlank String firstName, @NotBlank String lastName, @NotBlank int age, @NotBlank String email, @NotBlank Long phone, List<Course> courses) {
         this.professorID = professorID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.email = email;
         this.phone = phone;
+        this.courses = courses;
     }
 }

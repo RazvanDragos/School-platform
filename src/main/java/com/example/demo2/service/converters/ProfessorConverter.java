@@ -15,7 +15,8 @@ public class ProfessorConverter implements Converter<Professor, ProfessorDTO> {
                 professorDTO.lastName,
                 professorDTO.age,
                 professorDTO.email,
-                professorDTO.phone
+                professorDTO.phone,
+                professorDTO.courses
         );
     }
 
@@ -27,7 +28,8 @@ public class ProfessorConverter implements Converter<Professor, ProfessorDTO> {
                 professor.getLastName(),
                 professor.getAge(),
                 professor.getEmail(),
-                professor.getPhone()
+                professor.getPhone(),
+                professor.getCourses()
         );
     }
 }

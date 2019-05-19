@@ -5,6 +5,7 @@ import com.example.demo2.exception.NotFoundException;
 import com.example.demo2.model.Note;
 import com.example.demo2.repository.NoteRepository;
 import com.example.demo2.service.converters.NoteConverter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +15,7 @@ public class NoteService {
     private final NoteRepository noteRepository;
     private final NoteConverter noteConverter;
 
+    @Autowired
     public NoteService(NoteRepository noteRepository, NoteConverter noteConverter) {
         this.noteRepository = noteRepository;
         this.noteConverter = noteConverter;
